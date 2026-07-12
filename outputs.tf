@@ -1,3 +1,7 @@
+output "lb_probes_id" {
+  description = "Map of id values across all lb_probes, keyed the same as var.lb_probes"
+  value       = { for k, v in azurerm_lb_probe.lb_probes : k => v.id }
+}
 output "lb_probes_interval_in_seconds" {
   description = "Map of interval_in_seconds values across all lb_probes, keyed the same as var.lb_probes"
   value       = { for k, v in azurerm_lb_probe.lb_probes : k => v.interval_in_seconds }
